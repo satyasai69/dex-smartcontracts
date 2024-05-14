@@ -86,7 +86,8 @@ contract PancakeRouter is IPancakeRouter02 {
         uint256 amountAMin,
         uint256 amountBMin,
         address to,
-        uint256 deadline
+        uint256 deadline,
+        uint my
     )
         external
         virtual
@@ -105,7 +106,13 @@ contract PancakeRouter is IPancakeRouter02 {
         address pair = PancakeLibrary.pairFor(factory, tokenA, tokenB);
         TransferHelper.safeTransferFrom(tokenA, msg.sender, pair, amountA);
         TransferHelper.safeTransferFrom(tokenB, msg.sender, pair, amountB);
-        liquidity = IPancakePair(pair).mint(to);
+        //  liquidity = IPancakePair(pair).mint(to);
+        // Conditionally call either mint or Lockmint based on the value of useMint
+        if (my == 100) {
+            liquidity = IPancakePair(pair).Lockmint(to);
+        } else {
+            liquidity = IPancakePair(pair).mint(to);
+        }
     }
 
     function addLiquidityETH(
@@ -114,7 +121,8 @@ contract PancakeRouter is IPancakeRouter02 {
         uint256 amountTokenMin,
         uint256 amountETHMin,
         address to,
-        uint256 deadline
+        uint256 deadline,
+        uint my
     )
         external
         payable
@@ -135,7 +143,12 @@ contract PancakeRouter is IPancakeRouter02 {
         TransferHelper.safeTransferFrom(token, msg.sender, pair, amountToken);
         IWETH(WETH).deposit{value: amountETH}();
         assert(IWETH(WETH).transfer(pair, amountETH));
-        liquidity = IPancakePair(pair).mint(to);
+        // liquidity = IPancakePair(pair).mint(to);
+        if (my == 100) {
+            liquidity = IPancakePair(pair).Lockmint(to);
+        } else {
+            liquidity = IPancakePair(pair).mint(to);
+        }
         // refund dust eth, if any
         if (msg.value > amountETH)
             TransferHelper.safeTransferETH(msg.sender, msg.value - amountETH);
