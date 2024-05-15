@@ -11,6 +11,11 @@
 						"internalType": "address",
 						"name": "_feeToSetter",
 						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_taxfee",
+						"type": "uint256"
 					}
 				],
 				"payable": false,
@@ -182,6 +187,21 @@
 				"type": "function"
 			},
 			{
+				"constant": true,
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"constant": false,
 				"inputs": [
 					{
@@ -210,6 +230,36 @@
 				"payable": false,
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "taxfee",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_newtax",
+						"type": "uint256"
+					}
+				],
+				"name": "taxfeeupdate",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -233,24 +283,24 @@
 	},
 	"sources": {
 		"src/exchange-protocol/contracts/PancakeERC20.sol": {
-			"keccak256": "0x69ddd116a94c41092cb2616e57d5d59e674305c966ac9953ffb04d4ce5249ce7",
+			"keccak256": "0x22102f2e61221b4fb36f09c30b2abe3d790a450fa344c78bd7fed2a8d937300a",
 			"urls": [
-				"bzz-raw://642da8a2b220b7867963d125275724429e4919c51c36fd3b2b287adf34bf3647",
-				"dweb:/ipfs/QmbFe82gVJGQHpAxydNQAKEWjqzqwsYtLTMiEsBBYnKKaB"
+				"bzz-raw://777452abf0aa99434b78ed9d8e4c8d8885190e5a423231f2c84ba804c0759b72",
+				"dweb:/ipfs/QmVNe5PF8g4SyaGr4qREDfSohqdq88vZ1FAEjY6xMqHwB4"
 			]
 		},
 		"src/exchange-protocol/contracts/PancakeFactory.sol": {
-			"keccak256": "0x9ac88a7a6974f6384b3da0de6de3e39de6f52b93d3008cd59638284b9c7e5896",
+			"keccak256": "0xee43e600fb2598801b214328e4b19e74e06a1b8eb59b9c617c5a550d289b2b46",
 			"urls": [
-				"bzz-raw://a0c23656dd2da1c0efd97fd7df2849628af91c6c09c39f524e8d4f00d4293b49",
-				"dweb:/ipfs/QmRy9qvijAqVQuhcabyfYEEW389oPbiyYtCGPzbRDjp9c9"
+				"bzz-raw://aa68a6b0a8ff00377242871d85103e50ee56ab7a15905dcd45d63a95a9eea3df",
+				"dweb:/ipfs/QmaKp8xAkiwm9onUHSu2xMDpocb9n7ZfbYqHU9F8eLSqxC"
 			]
 		},
 		"src/exchange-protocol/contracts/PancakePair.sol": {
-			"keccak256": "0xc4fd5feb1f5508965eb35a823783ebc42137ce8fb2abf12a0218075f23eb9bbf",
+			"keccak256": "0x1a4ca65c2081a9cf126b2625b12299b7a72f401ebd6c867a08cef91dee69a078",
 			"urls": [
-				"bzz-raw://d2e9d0ed2b14efbc7c5760b825486c110b0a61ea7a9231ffc6147a46c3334a00",
-				"dweb:/ipfs/QmerW1MEbnnDE2f18q2bPRoryLx4h6f4UGQVaQk25SMZuC"
+				"bzz-raw://c4ab58299090b6681ed2cd4cb7f52c38199053b79b485d4330d1c24faac1cd5b",
+				"dweb:/ipfs/QmcBqxxeQnQy9EoEAtYCwvcGtptb514vvmuugPaR3jKxSN"
 			]
 		},
 		"src/exchange-protocol/contracts/interfaces/IERC20.sol": {
@@ -268,10 +318,10 @@
 			]
 		},
 		"src/exchange-protocol/contracts/interfaces/IPancakeERC20.sol": {
-			"keccak256": "0x1c12c7596bbb8cae6c81f403722344bdbb8e6b3adad577d8e75d3b92005e06e1",
+			"keccak256": "0xcbc23c5f49cec5fe9a629b28641466e09d1decf16b568b874d0a2a54df3e3164",
 			"urls": [
-				"bzz-raw://07464188002aa47af55741ea345b54a062619ce1890b37e2acc71e31e2cb6c0e",
-				"dweb:/ipfs/QmcvxDZNR5kPar3NLNsVEr2BTRVcuJh9eoFtd5Tb6LQibJ"
+				"bzz-raw://2edfcc3d8fca38ab0facf5d1ba062e6e4c23fc2c2390078ef8ccb5290495fdab",
+				"dweb:/ipfs/QmZmTT6nVVSvesy6oY8pwHKvuY5W1EZr5jGeBmK73Rvrzg"
 			]
 		},
 		"src/exchange-protocol/contracts/interfaces/IPancakeFactory.sol": {
@@ -282,10 +332,10 @@
 			]
 		},
 		"src/exchange-protocol/contracts/interfaces/IPancakePair.sol": {
-			"keccak256": "0xb3d3ac8e3e41ff3b87b26672225c38b36be5a52008288bd6a3b83b7d68f572d6",
+			"keccak256": "0xe4daee16aaf3d76aa213eb0133d5b72e4a2eb432d7751c14067192acb106a859",
 			"urls": [
-				"bzz-raw://3ab097e4c47e0069f2e45cce7ccbb6d731c107fd4fff2db13663425a17e52ee5",
-				"dweb:/ipfs/QmNmrZbJj5YG3QrLVUNMS4VnXNBfSRwqwZ8nAEdALMFQSR"
+				"bzz-raw://e6cb03aa3a86cfc8951ba9b3fd61f7fdb5fd99e683f3784612c7cacae39f09e4",
+				"dweb:/ipfs/QmPsrw6fZZ8kRWb8XsWBGoCp5DHLCmcQf6epbobyr1A9TZ"
 			]
 		},
 		"src/exchange-protocol/contracts/libraries/Math.sol": {

@@ -105,5 +105,5 @@ interface IPancakePair {
 
     function sync() external;
 
-    function initialize(address, address) external;
+    function initialize(address, address, uint) external; // custom
 }

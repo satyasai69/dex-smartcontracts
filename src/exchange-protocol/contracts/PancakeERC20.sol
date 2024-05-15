@@ -7,8 +7,8 @@ import "./libraries/SafeMath.sol";
 contract PancakeERC20 is IPancakeERC20 {
     using SafeMath for uint256;
 
-    string public constant name = "Pancake LPs";
-    string public constant symbol = "Cake-LP";
+    string public constant name = "KBC LPs";
+    string public constant symbol = "KBC-LP";
     uint8 public constant decimals = 18;
     uint256 public totalSupply;
     mapping(address => uint256) public balanceOf;
